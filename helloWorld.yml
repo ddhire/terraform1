@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: tomcatdeployment
   labels:
-    env: prod
+    env: dev
 spec:
   selector:
     matchLabels:
@@ -21,13 +21,13 @@ spec:
         - containerPort: 8080
         imagePullPolicy: Always
       nodeSelector:
-        env: prod
+        env: dev
         
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: prod_tomcatapp
+  name: dev_tomcatapp
 spec:
   type: NodePort
   ports:
